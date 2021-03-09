@@ -19,8 +19,8 @@ then edit scpSync.json,
 ```json
 {
   "host": "yourName@yourHost",
-  "startCmd": "start command to run after watching",
-  "remoteFolder": "the remote project folder to be sync to",
+  "startCmd": "start command to run remotely after watching",
+  "remoteFolder": "yourRemoteFolderPath",
   "watchDir": "yourLocalFolderPath",
   "port": 0,
   "sshParams": ["extra", "ssh", "params", "when", "running", "startCmd"],
