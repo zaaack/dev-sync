@@ -34,7 +34,7 @@ export class ScpSync {
       if (!pkg.scpSync) {
         throw new Error(`Cannot find config in ./scpSync.json or package.json['scpSync']`)
       }
-      conf = pkg.devSync
+      conf = pkg.scpSync
     }
     if (!conf.host || !conf.remoteFolder) {
       throw new Error(`Invalid conf file:${JSON.stringify(conf, null, 2)}`)
