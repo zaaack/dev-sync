@@ -25,7 +25,8 @@ cli.command('init').action(() => {
   const conf: Conf = {
     host: 'yourName@yourServer',
     startCmd: 'npm start',
-    remoteFolder: 'yourFolderPath',
+    remoteFolder: 'yourRemoteFolderPath',
+    watchDir: "yourLocalFolderPath",
     port: 0,
     scpParams: [],
     sshParams: [],

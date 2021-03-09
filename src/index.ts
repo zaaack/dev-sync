@@ -42,7 +42,7 @@ export class ScpSync {
     return new ScpSync(conf)
   }
   resolveFile(file: string) {
-    const relatedPath = path.relative(this.conf.watchDir!, path.resolve(this.conf.watchDir!, file))
+    const relatedPath = path.relative(this.conf.watchDir!, path.join(this.conf.watchDir!, file))
     return path.resolve(this.conf.remoteFolder, relatedPath)
   }
   async scp(file: string) {
@@ -50,7 +50,9 @@ export class ScpSync {
       ...(this.conf.scpParams || []),
       file,
       `${this.conf.host}:${this.resolveFile(file)}`,
-    ])
+    ], {
+      stdio: 'inherit'
+    })
   }
   watch() {
     fs.watchDir(this.conf.watchDir!, (event, file) => {
