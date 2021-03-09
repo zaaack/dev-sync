@@ -26,7 +26,7 @@ cli.command('init').action(() => {
     host: 'yourName@yourServer',
     startCmd: 'npm start',
     remoteFolder: 'yourRemoteFolderPath',
-    watchDir: "yourLocalFolderPath",
+    localFolder: "yourLocalFolderPath",
     port: 0,
     scpParams: [],
     sshParams: [],
@@ -37,4 +37,5 @@ cli.command('init').action(() => {
 })
 
 cli.help()
+cli.version(require('../package.json').version)
 cli.parse()

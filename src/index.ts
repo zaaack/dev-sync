@@ -8,13 +8,13 @@ export interface Conf {
   host: string
   remoteFolder: string
   startCmd?: string
-  watchDir?: string
+  localFolder?: string
 }
 export class ScpSync {
   constructor(private conf: Conf) {
     conf.scpParams = conf.scpParams || []
     conf.sshParams = conf.sshParams || []
-    conf.watchDir = conf.watchDir || process.cwd()
+    conf.localFolder = conf.localFolder || process.cwd()
     if (conf.port) {
       conf.scpParams.push('-P', conf.port + '')
       conf.sshParams.push('-p', conf.port + '')
@@ -42,8 +42,8 @@ export class ScpSync {
     return new ScpSync(conf)
   }
   resolveFile(file: string) {
-    const relatedPath = path.relative(this.conf.watchDir!, path.join(this.conf.watchDir!, file))
-    return path.resolve(this.conf.remoteFolder, relatedPath)
+    const relatedPath = path.relative(this.conf.localFolder!, path.join(this.conf.localFolder!, file))
+    return path.join(this.conf.remoteFolder, relatedPath)
   }
   async scp(file: string) {
     await spawn('scp', [
@@ -55,7 +55,7 @@ export class ScpSync {
     })
   }
   watch() {
-    fs.watchDir(this.conf.watchDir!, (event, file) => {
+    fs.watchDir(this.conf.localFolder!, (event, file) => {
       logger.log('watch', event, file)
       if (event !== 'delete') {
         this.scp(file)

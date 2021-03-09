@@ -5,7 +5,7 @@ export interface Conf {
     host: string;
     remoteFolder: string;
     startCmd?: string;
-    watchDir?: string;
+    localFolder?: string;
 }
 export declare class ScpSync {
     private conf;
