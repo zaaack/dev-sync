@@ -22,8 +22,8 @@ then edit scpSync.json,
   "startCmd": "start command to run after watching",
   "remoteFolder": "the remote project folder to be sync to",
   "port": 0,
-  "sshParams": "extra ssh params when running startCmd",
-  "scpParams": "extra scp params when syncing files"
+  "sshParams": ["extra", "ssh", "params", "when", "running", "startCmd"],
+  "scpParams": ["extra", "scp", "params", "when", "syncing", "files"]
 }
 ```
 
@@ -32,5 +32,5 @@ start watching
 ```sh
 yarn scp-sync start
 # yarn scp-sync start -w # watch only
-# yarn scp-sync start -s # sync only
+# yarn scp-sync start -s # start command only
 ```
