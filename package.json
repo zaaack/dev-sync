@@ -1,6 +1,6 @@
 {
   "name": "@zaaack/scp-sync",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Sync files to dev macines via scp",
   "main": "./lib/index.js",
   "repository": "https://github.com/zaaack/scp-sync",
