@@ -5,20 +5,25 @@ import { ScpSync, Conf } from './index'
 import { fs } from 'foy'
 
 const cli = cac('scp-sync')
+const scpSync = ScpSync.resolveConf()
 
 cli
 .command('start', 'start watching and syncing...')
-.option('-w, --watch-only', 'watch only')
-.option('-s, --start-only', 'start command only')
 .action((...args) => {
-  const options = args.pop()
-  const scpSync = ScpSync.resolveConf()
-  if (!options.startOnly) {
-    scpSync.watch()
-  }
-  if (!options.watchOnly) {
-    scpSync.startCmd()
-  }
+  scpSync.watch()
+  scpSync.startCmd()
+})
+
+cli
+.command('watch', 'watch and sync files')
+.action((...args) => {
+  scpSync.watch()
+})
+
+cli
+.command('exec', 'exec start command')
+.action((...args) => {
+  scpSync.startCmd()
 })
 
 cli.command('init').action(() => {

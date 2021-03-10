@@ -32,6 +32,6 @@ start watching
 
 ```sh
 yarn scp-sync start
-# yarn scp-sync start -w # watch only
-# yarn scp-sync start -s # start command only
+# yarn scp-sync watch # watch and sync files
+# yarn scp-sync exec # exec start command
 ```
