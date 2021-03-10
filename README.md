@@ -11,8 +11,8 @@ Sync project files to remote server via scp.
 ## Usage
 
 ```sh
-yarn add -D @zaaack/scp-sync
-npx scp-sync init # this generate config file "scpSync.json" in current directory.
+yarn global add @zaaack/scp-sync
+scp-sync init # this generate config file "scpSync.json" in current directory.
 ```
 
 then edit scpSync.json,
@@ -31,7 +31,7 @@ then edit scpSync.json,
 start watching
 
 ```sh
-yarn scp-sync start
-# yarn scp-sync watch # watch and sync files
-# yarn scp-sync exec # exec start command
+scp-sync start
+# scp-sync watch # watch and sync files
+# scp-sync exec # exec start command
 ```
