@@ -35,6 +35,7 @@ cli.command('init').action(() => {
     port: 0,
     scpParams: [],
     sshParams: [],
+    ignore: ['**/.DS_Store', '**/node_modules/**']
   }
   fs.outputJsonSync('./scpSync.json', conf, {
     space: 2
