@@ -12,8 +12,8 @@ export declare class ScpSync {
     constructor(conf: Conf);
     static resolveConf(): ScpSync;
     resolveFile(file: string): string;
-    scp(file: string): Promise<void>;
+    scp(file: string): Promise<void | import("execa").ExecaReturnValue<string>>;
     watch(): void;
-    startCmd(): Promise<import("execa").ExecaReturnValue<string> | undefined>;
-    ssh(cmd: string): import("execa").ExecaChildProcess<string>;
+    startCmd(): Promise<void | import("execa").ExecaReturnValue<string>>;
+    ssh(cmd: string): Promise<void | import("execa").ExecaReturnValue<string>>;
 }

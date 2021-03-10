@@ -46,13 +46,13 @@ export class ScpSync {
     return path.join(this.conf.remoteFolder, relatedPath)
   }
   async scp(file: string) {
-    await spawn('scp', [
+    return spawn('scp', [
       ...(this.conf.scpParams || []),
       file,
       `${this.conf.host}:${this.resolveFile(file)}`,
     ], {
       stdio: 'inherit'
-    })
+    }).catch(logger.error)
   }
   watch() {
     fs.watchDir(this.conf.localFolder!, (event, file) => {
@@ -69,7 +69,7 @@ export class ScpSync {
     if (!this.conf.startCmd) {
       return
     }
-    return this.ssh(`cd ${this.conf.remoteFolder};${this.conf.startCmd}`)
+    return this.ssh(`${this.conf.startCmd}`)
   }
   ssh(cmd: string) {
     logger.info('ssh', cmd)
@@ -77,9 +77,9 @@ export class ScpSync {
       ...(this.conf.sshParams || []),
       this.conf.host,
       '-t',
-      `$SHELL -i -c "${cmd.replace('"', '\\"')}"`,
+      `$SHELL -i -c "cd ${this.conf.remoteFolder};${cmd.replace('"', '\\"')}"`,
     ], {
       stdio: 'inherit'
-    })
+    }).catch(logger.error)
   }
 }
