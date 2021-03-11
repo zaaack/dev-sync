@@ -24,7 +24,8 @@ then edit scpSync.json,
   "localFolder": "yourLocalFolderPath",
   "port": 0,
   "sshParams": ["extra", "ssh", "params", "when", "running", "startCmd"],
-  "scpParams": ["extra", "scp", "params", "when", "syncing", "files"]
+  "scpParams": ["extra", "scp", "params", "when", "syncing", "files"],
+  "ignore": ["**/.DS_Store", "**/node_modules/**"] // 忽略同步某些文件，支持 glob
 }
 ```
 
