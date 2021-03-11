@@ -127,10 +127,10 @@ figures@^3.2.0:
   dependencies:
     escape-string-regexp "^1.0.5"
 
-foy@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.npm.taobao.org/foy/download/foy-0.2.1.tgz#6c27e39f601dc1c0f43de53736e285ada39bcefa"
-  integrity sha1-bCfjn2AdwcD0PeU3NuKFraObzvo=
+foy@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/foy/-/foy-0.2.2.tgz#b503a3cb83f4862372bf42eb4edb157dc7a20209"
+  integrity sha512-hxzsn7eWzNvvcfB5kdLoSgDSgTcNF4jB6EstfoApydxA4FBq8NjibJnApzW12xJrxrAH/bTj8Dq2Woqb+0QPfg==
   dependencies:
     cac "^6.6.1"
     chalk "^4.1.0"

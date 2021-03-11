@@ -17,7 +17,7 @@
     "build": "rm -rf ./lib && tsc"
   },
   "dependencies": {
-    "foy": "^0.2.1",
+    "foy": "^0.2.2",
     "minimatch": "^3.0.4"
   },
   "devDependencies": {

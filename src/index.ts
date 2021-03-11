@@ -64,12 +64,11 @@ export class ScpSync {
   // make sync task running as queue
   private _runningScpTask = Promise.resolve()
   watch() {
-    fs.watchDir(this.conf.localFolder!, { throttle: 0 }, (event, fileOrFolder) => {
+    fs.watchDir(this.conf.localFolder!, (event, fileOrFolder) => {
       const resolvedFileOrFolder = this.resolveFile(fileOrFolder)
       // pattern match
       if (
         this.conf.ignore.some((i) => {
-          console.log(`minimatch`, resolvedFileOrFolder, i, minimatch(resolvedFileOrFolder, i))
           return minimatch(resolvedFileOrFolder, i)
         })
       ) {
